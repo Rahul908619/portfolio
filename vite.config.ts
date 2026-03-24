@@ -3,18 +3,43 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
+const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+const basePath = process.env.BASE_PATH || "/";
+
 export default defineConfig({
-  base: "/",
-  plugins: [react(), tailwindcss()],
+  base: basePath,
+  plugins: [
+    react(),
+    tailwindcss(),
+    ...(process.env.NODE_ENV !== "production" && process.env.REPL_ID
+      ? [
+          await import("@replit/vite-plugin-runtime-error-modal").then((m) => m.default()),
+          await import("@replit/vite-plugin-cartographer").then((m) =>
+            m.cartographer({ root: path.resolve(import.meta.dirname, "..") })
+          ),
+          await import("@replit/vite-plugin-dev-banner").then((m) => m.devBanner()),
+        ]
+      : []),
+  ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
-      "@assets": path.resolve(__dirname, "src/assets"),
+      "@": path.resolve(import.meta.dirname, "src"),
+      "@assets": path.resolve(import.meta.dirname, "src/assets"),
     },
     dedupe: ["react", "react-dom"],
   },
   build: {
     outDir: "dist",
     emptyOutDir: true,
+  },
+  server: {
+    port,
+    host: "0.0.0.0",
+    allowedHosts: true,
+  },
+  preview: {
+    port,
+    host: "0.0.0.0",
+    allowedHosts: true,
   },
 });

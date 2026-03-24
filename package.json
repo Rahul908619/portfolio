@@ -1,14 +1,15 @@
 {
-  "name": "rahul-kumawat-portfolio",
-  "version": "1.0.0",
+  "name": "@workspace/portfolio",
+  "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vite --config vite.config.ts --host 0.0.0.0",
+    "build": "vite build --config vite.config.ts",
+    "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "dependencies": {
+  "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.4",
     "@radix-ui/react-alert-dialog": "^1.1.7",
@@ -37,10 +38,16 @@
     "@radix-ui/react-toggle": "^1.1.3",
     "@radix-ui/react-toggle-group": "^1.1.3",
     "@radix-ui/react-tooltip": "^1.2.0",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.5.0",
-    "@tanstack/react-query": "^5.90.21",
+    "@replit/vite-plugin-cartographer": "^0.5.1",
+    "@replit/vite-plugin-dev-banner": "^0.1.1",
+    "@replit/vite-plugin-runtime-error-modal": "^0.0.6",
     "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/vite": "^4.1.14",
+    "@tanstack/react-query": "^5.90.21",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "2.1.1",
     "cmdk": "^1.1.1",
@@ -60,20 +67,17 @@
     "recharts": "^2.15.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "3.5.0",
-    "three": "^0.183.2",
+    "tailwindcss": "^4.1.14",
     "tw-animate-css": "^1.4.0",
+    "typescript": "^5.0.0",
     "vaul": "^1.1.2",
+    "vite": "^7.3.0",
     "wouter": "^3.3.5",
     "zod": "^3.25.76"
   },
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.1.14",
-    "@types/node": "^20.0.0",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
-    "@vitejs/plugin-react": "^5.0.4",
-    "tailwindcss": "^4.1.14",
-    "typescript": "^5.0.0",
-    "vite": "^7.3.0"
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "three": "^0.183.2"
   }
 }
