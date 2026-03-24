@@ -1,0 +1,18 @@
+packages:
+  "framer-motion": "For page transitions, scroll animations, and component micro-interactions"
+  "three": "Required core library for 3D elements"
+  "@react-three/fiber": "React renderer for Three.js to implement 3D hero elements"
+  "@react-three/drei": "Useful helpers and abstractions for @react-three/fiber"
+  "react-simple-typewriter": "For the animated typing effect in the hero section"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for merging tailwind classes safely"
+
+images:
+  - path: "artifacts/portfolio/public/images/avatar.png"
+    description: "A professional 3D stylized avatar of a young Indian male software developer, futuristic cyberpunk aesthetic, neon cyan and purple rim lighting, dark transparent glassmorphism background, high quality, 8k"
+    aspect_ratio: "1:1"
+
+notes:
+  - This is a static portfolio site, relying entirely on frontend capabilities. No backend required.
+  - Three.js is used for a floating 3D object in the hero section.
+  - HTML Canvas API is used for the interactive particle network background.
