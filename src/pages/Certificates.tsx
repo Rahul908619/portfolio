@@ -25,7 +25,7 @@ const certificates = [
     description:
       "Completed the NPTEL Cloud Computing course covering cloud service models (IaaS, PaaS, SaaS), virtualization, cloud security, and deployment strategies.",
     skills: ["Cloud Architecture", "IaaS/PaaS/SaaS", "Virtualization", "Cloud Security"],
-    link: "https://nptel.ac.in/",
+    link: "https://drive.google.com/file/d/1J5-SQ_gfTFo4Hu4n-wN1eAGUveEAIaor/view",
     color: "primary" as CertColor,
     icon: "☁️",
     verified: true,
@@ -77,7 +77,7 @@ const certificates = [
     description:
       "4-month intensive training covering ethical hacking principles, Kali Linux tools, network security, vulnerability assessment, and defensive security concepts.",
     skills: ["Kali Linux", "Ethical Hacking", "Network Security", "Vulnerability Assessment"],
-    link: "https://drive.google.com/file/d/1J5-SQ_gfTFo4Hu4n-wN1eAGUveEAIaor/view",
+    link: "#",
     color: "orange" as CertColor,
     icon: "🔐",
     verified: true,
