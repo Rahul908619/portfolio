@@ -1,15 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { CustomCursor } from "@/components/CustomCursor";
-import { GraduationCap, MapPin, Calendar, Award, BookOpen, Star } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, Star } from "lucide-react";
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
 };

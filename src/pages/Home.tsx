@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, type Variants } from "framer-motion";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/Navbar";
@@ -8,7 +8,7 @@ import { ThreeScene } from "@/components/ThreeScene";
 import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { FloatingChatbot } from "@/components/FloatingChatbot";
 import {
-  SiJavascript, SiPython, SiHtml5, SiCss3, SiCplusplus, SiMysql,
+  SiJavascript, SiPython, SiHtml5, SiCss, SiCplusplus, SiMysql,
   SiReact, SiNodedotjs, SiTailwindcss, SiNumpy, SiPandas,
   SiGit, SiGithub, SiLinux, SiJupyter,
   SiSpringboot, SiMongodb
@@ -31,12 +31,12 @@ export default function Home() {
     };
   }, []);
 
-  const fadeInUP = {
+  const fadeInUP: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -461,7 +461,7 @@ export default function Home() {
                     { icon: <SiJavascript size={32} />, name: "JavaScript", color: "#F7DF1E" },
                     { icon: <SiPython size={32} />, name: "Python", color: "#3776AB" },
                     { icon: <SiHtml5 size={32} />, name: "HTML5", color: "#E34F26" },
-                    { icon: <SiCss3 size={32} />, name: "CSS3", color: "#1572B6" },
+                    { icon: <SiCss size={32} />, name: "CSS3", color: "#1572B6" },
                     { icon: <SiMysql size={32} />, name: "SQL", color: "#4479A1" },
                     { icon: <SiCplusplus size={32} />, name: "C++", color: "#00599C" },
                   ].map(({ icon, name, color }) => (
