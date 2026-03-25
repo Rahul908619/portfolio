@@ -638,7 +638,7 @@ export default function Home() {
                     title="B.Tech Computer Science"
                     subtitle="Lovely Professional University, Punjab"
                     date="Aug 2023 - Present"
-                    desc="CGPA: 7.11"
+                    desc="CGPA: 6.11"
                     active
                   />
                   <TimelineItem 

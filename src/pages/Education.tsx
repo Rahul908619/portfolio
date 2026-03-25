@@ -21,7 +21,7 @@ const educationData = [
     institution: "Lovely Professional University",
     location: "Punjab, India",
     duration: "Aug 2023 – Present",
-    grade: "CGPA: 7.11",
+    grade: "CGPA: 6.11",
     gradeType: "cgpa",
     status: "Ongoing",
     highlights: [
