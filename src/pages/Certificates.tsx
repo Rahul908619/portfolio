@@ -64,7 +64,7 @@ const certificates = [
     description:
       "Coursera specialization covering data communications, network architectures, internet protocols, and distributed systems fundamentals.",
     skills: ["Data Communications", "Network Architecture", "Internet Protocols", "Distributed Systems"],
-    link: "https://www.coursera.org/",
+    link: "https://www.coursera.org/account/accomplishments/verify/KHQPGWZZ58K1",
     color: "green" as CertColor,
     icon: "📡",
     verified: true,
@@ -77,7 +77,7 @@ const certificates = [
     description:
       "4-month intensive training covering ethical hacking principles, Kali Linux tools, network security, vulnerability assessment, and defensive security concepts.",
     skills: ["Kali Linux", "Ethical Hacking", "Network Security", "Vulnerability Assessment"],
-    link: "#",
+    link: "https://drive.google.com/file/d/1J5-SQ_gfTFo4Hu4n-wN1eAGUveEAIaor/view",
     color: "orange" as CertColor,
     icon: "🔐",
     verified: true,
