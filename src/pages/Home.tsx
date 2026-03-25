@@ -5,8 +5,15 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/Navbar";
 import { Typewriter } from "react-simple-typewriter";
 import { ThreeScene } from "@/components/ThreeScene";
-import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Terminal } from "lucide-react";
+import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { FloatingChatbot } from "@/components/FloatingChatbot";
+import {
+  SiJavascript, SiPython, SiHtml5, SiCss3, SiCplusplus, SiMysql,
+  SiReact, SiNodedotjs, SiTailwindcss, SiNumpy, SiPandas,
+  SiGit, SiGithub, SiLinux, SiJupyter,
+  SiSpringboot, SiMongodb
+} from "react-icons/si";
+import { VscTerminalBash } from "react-icons/vsc";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -118,7 +125,8 @@ export default function Home() {
                   View Projects
                 </a>
                 <a 
-                  href="#" 
+                  href={`${import.meta.env.BASE_URL}Rahul_Kumawat_CV.docx`}
+                  download="Rahul_Kumawat_CV.docx"
                   className="px-8 py-3 rounded-md font-semibold glass border border-white/20 hover:border-secondary hover:bg-secondary/10 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 flex items-center gap-2"
                 >
                   <Download size={18} /> Download CV
@@ -441,28 +449,76 @@ export default function Home() {
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="space-y-8">
-                <h3 className="text-2xl font-display font-semibold text-secondary">Languages & Core</h3>
-                <div className="space-y-4">
-                  <SkillBar name="HTML/CSS" percent={90} />
-                  <SkillBar name="JavaScript" percent={85} />
-                  <SkillBar name="Python" percent={82} />
-                  <SkillBar name="SQL" percent={75} />
-                  <SkillBar name="Java" percent={65} />
-                  <SkillBar name="C++" percent={60} />
+            <div className="space-y-12">
+              {/* Languages */}
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+                <h3 className="text-xl font-display font-semibold text-secondary mb-6 flex items-center gap-2">
+                  <span className="w-8 h-[2px] bg-secondary inline-block rounded-full"></span>
+                  Languages
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                  {[
+                    { icon: <SiJavascript size={32} />, name: "JavaScript", color: "#F7DF1E" },
+                    { icon: <SiPython size={32} />, name: "Python", color: "#3776AB" },
+                    { icon: <SiHtml5 size={32} />, name: "HTML5", color: "#E34F26" },
+                    { icon: <SiCss3 size={32} />, name: "CSS3", color: "#1572B6" },
+                    { icon: <SiMysql size={32} />, name: "SQL", color: "#4479A1" },
+                    { icon: <SiCplusplus size={32} />, name: "C++", color: "#00599C" },
+                  ].map(({ icon, name, color }) => (
+                    <motion.div key={name} variants={fadeInUP} whileHover={{ y: -6, scale: 1.05 }}
+                      className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-default group">
+                      <div style={{ color }} className="transition-transform duration-300 group-hover:scale-110">{icon}</div>
+                      <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">{name}</span>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
 
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="space-y-8">
-                <h3 className="text-2xl font-display font-semibold text-primary">Frameworks, AI & Tools</h3>
-                <div className="space-y-4">
-                  <SkillBar name="React.js / Node.js" percent={85} color="primary" />
-                  <SkillBar name="Scikit-learn / ML" percent={75} color="primary" />
-                  <SkillBar name="Pandas & NumPy" percent={78} color="primary" />
-                  <SkillBar name="Socket.io" percent={72} color="primary" />
-                  <SkillBar name="Git & GitHub" percent={85} color="primary" />
-                  <SkillBar name="MySQL / MongoDB" percent={80} color="primary" />
+              {/* Frameworks & Libraries */}
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+                <h3 className="text-xl font-display font-semibold text-primary mb-6 flex items-center gap-2">
+                  <span className="w-8 h-[2px] bg-primary inline-block rounded-full"></span>
+                  Frameworks & Libraries
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                  {[
+                    { icon: <SiReact size={32} />, name: "React.js", color: "#61DAFB" },
+                    { icon: <SiNodedotjs size={32} />, name: "Node.js", color: "#339933" },
+                    { icon: <SiSpringboot size={32} />, name: "Spring Boot", color: "#6DB33F" },
+                    { icon: <SiTailwindcss size={32} />, name: "Tailwind CSS", color: "#06B6D4" },
+                    { icon: <SiNumpy size={32} />, name: "NumPy", color: "#013243" },
+                    { icon: <SiPandas size={32} />, name: "Pandas", color: "#150458" },
+                  ].map(({ icon, name, color }) => (
+                    <motion.div key={name} variants={fadeInUP} whileHover={{ y: -6, scale: 1.05 }}
+                      className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 border border-white/10 hover:border-primary/40 transition-all duration-300 cursor-default group">
+                      <div style={{ color }} className="transition-transform duration-300 group-hover:scale-110">{icon}</div>
+                      <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">{name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Tools & Platforms */}
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+                <h3 className="text-xl font-display font-semibold text-blue-400 mb-6 flex items-center gap-2">
+                  <span className="w-8 h-[2px] bg-blue-400 inline-block rounded-full"></span>
+                  Tools & Platforms
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                  {[
+                    { icon: <SiGit size={32} />, name: "Git", color: "#F05032" },
+                    { icon: <SiGithub size={32} />, name: "GitHub", color: "#ffffff" },
+                    { icon: <SiLinux size={32} />, name: "Linux", color: "#FCC624" },
+                    { icon: <VscTerminalBash size={32} />, name: "Bash", color: "#4EAA25" },
+                    { icon: <SiJupyter size={32} />, name: "Jupyter", color: "#F37626" },
+                    { icon: <SiMongodb size={32} />, name: "MongoDB", color: "#47A248" },
+                  ].map(({ icon, name, color }) => (
+                    <motion.div key={name} variants={fadeInUP} whileHover={{ y: -6, scale: 1.05 }}
+                      className="glass-card rounded-2xl p-4 flex flex-col items-center gap-3 border border-white/10 hover:border-blue-400/40 transition-all duration-300 cursor-default group">
+                      <div style={{ color }} className="transition-transform duration-300 group-hover:scale-110">{icon}</div>
+                      <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">{name}</span>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
             </div>
@@ -494,49 +550,52 @@ export default function Home() {
                   "Admin dashboard: manage questions & users",
                   "RESTful API with layered architecture",
                 ]}
-                tech={["Java", "Spring Boot", "MySQL", "HTML", "CSS", "JavaScript"]}
-                github="https://github.com/Rahul908619"
+                tech={["Java", "Spring Boot", "MySQL", "React", "REST API"]}
+                github="https://github.com/Rahul908619/Online-Examination-System"
                 badge="Latest"
                 badgeColor="primary"
                 icon="📝"
+                image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80"
               />
               <ProjectCard
                 title="BidBazar"
                 subtitle="Real-Time Online Auction Platform"
                 date="Nov 2024"
                 category="Full Stack / Web"
-                description="An online auction platform where users can list products and place live bids. Built with real-time dynamic price updates, user authentication, bidding history, and a clean dashboard for managing listings."
+                description="An online auction platform with Auto-Bid Agent (Proxy Bidding) that automatically places bids up to a user-defined limit. Anti-sniping mechanism dynamically extends auction time for last-second bids."
                 features={[
-                  "Real-time bidding with dynamic price updates",
-                  "User login & registration system",
-                  "Product listing and bidding history",
-                  "Highest bidder displayed in real-time",
-                  "Secure user sessions & data management",
+                  "Auto-Bid Agent (Proxy Bidding) system",
+                  "Anti-sniping mechanism for fair auctions",
+                  "Secure authentication & real-time bid processing",
+                  "Optimized database queries",
+                  "Bidding history & winner tracking",
                 ]}
-                tech={["HTML", "CSS", "JavaScript", "Java", "Spring Boot", "MySQL"]}
-                github="https://github.com/Rahul908619"
+                tech={["HTML", "CSS", "JavaScript", "Node.js", "Express.js", "MySQL"]}
+                github="https://github.com/Rahul908619/Online-Auction-Website"
                 badge="Featured"
                 badgeColor="secondary"
                 icon="🏷️"
+                image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80"
               />
               <ProjectCard
-                title="Weather Forecast Website"
-                subtitle="Real-Time Weather App"
+                title="AI Weather Forecast"
+                subtitle="Rural-Focused Weather Intelligence Platform"
                 date="Mar 2025"
                 category="Frontend / API"
-                description="A responsive weather forecasting web app that fetches live weather data from the OpenWeather API. Users can search any city and instantly view temperature, humidity, wind speed, and weather conditions with a clean UI."
+                description="Rural-focused weather intelligence platform providing micro-zone (village-level) forecasts. Includes a rule-based AI advisory engine for crop protection alerts and a voice-enabled alert system in regional languages."
                 features={[
-                  "Live weather data via OpenWeather API",
-                  "Search any city worldwide",
-                  "Temperature, humidity & wind details",
-                  "Weather condition icons & description",
-                  "Responsive, mobile-friendly design",
+                  "Village-level micro-zone weather forecasts",
+                  "AI advisory for crop protection & irrigation",
+                  "Voice-enabled weather alerts in regional language",
+                  "Severe weather risk warnings for farmers",
+                  "OpenWeatherMap API integration",
                 ]}
-                tech={["HTML", "CSS", "JavaScript", "OpenWeather API"]}
-                github="https://github.com/Rahul908619"
-                badge="Live"
+                tech={["HTML", "CSS", "JavaScript", "Node.js", "OpenWeatherMap API", "MySQL"]}
+                github="https://github.com/Rahul908619/AI-Weather-Forecast"
+                badge="AI Powered"
                 badgeColor="green"
                 icon="🌦️"
+                image="https://images.unsplash.com/photo-1504608524841-42584120d693?w=600&q=80"
               />
               <ProjectCard
                 title="AI PC Assistant"
@@ -556,6 +615,7 @@ export default function Home() {
                 badge="AI Powered"
                 badgeColor="orange"
                 icon="🤖"
+                image="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80"
               />
             </div>
           </div>
@@ -594,6 +654,9 @@ export default function Home() {
                     desc="Percentage: 75.50%"
                   />
                 </div>
+                <a href="/education" className="mt-6 inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
+                  <ExternalLink size={14} /> View full education details →
+                </a>
               </motion.div>
 
               {/* Training & Certifications */}
@@ -614,11 +677,14 @@ export default function Home() {
                   </motion.div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <CertCard title="Cloud Computing" org="NPTEL" date="Apr 2025" />
-                    <CertCard title="Generative AI" org="Outskill" date="Nov 2025" />
-                    <CertCard title="Computer Networking" org="Google" date="Sep 2024" />
-                    <CertCard title="Communications" org="Coursera" date="Sep 2024" />
+                    <CertCard title="Cloud Computing" org="NPTEL" date="Apr 2025" link="https://nptel.ac.in/" />
+                    <CertCard title="Generative AI Mastermind" org="Outskill" date="Nov 2025" link="https://outskill.com/" />
+                    <CertCard title="Computer Networking" org="Google" date="Sep 2024" link="https://grow.google/certificates/" />
+                    <CertCard title="Computer Communications" org="Coursera" date="Sep 2024" link="https://www.coursera.org/" />
                   </div>
+                  <a href="/certificates" className="mt-4 flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
+                    <ExternalLink size={14} /> View all certificates →
+                  </a>
                 </div>
               </motion.div>
 
@@ -720,32 +786,9 @@ export default function Home() {
 
 // SUBCOMPONENTS 
 
-function SkillBar({ name, percent, color = "secondary" }: { name: string, percent: number, color?: "primary" | "secondary" }) {
-  const bgColor = color === "primary" ? "bg-primary" : "bg-secondary";
-  const glow = color === "primary" ? "shadow-[0_0_10px_#00ffff]" : "shadow-[0_0_10px_#a855f7]";
-  
-  return (
-    <div>
-      <div className="flex justify-between mb-1">
-        <span className="font-medium text-foreground text-sm">{name}</span>
-        <span className="text-muted-foreground text-sm">{percent}%</span>
-      </div>
-      <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-        <motion.div 
-          initial={{ width: 0 }}
-          whileInView={{ width: `${percent}%` }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className={`h-full ${bgColor} ${glow} rounded-full`}
-        />
-      </div>
-    </div>
-  );
-}
-
 type BadgeColor = "primary" | "secondary" | "green" | "orange";
 
-function ProjectCard({ title, subtitle, date, category, description, features, tech, github, badge, badgeColor, icon }: {
+function ProjectCard({ title, subtitle, date, category, description, features, tech, github, badge, badgeColor, icon, image }: {
   title: string;
   subtitle: string;
   date: string;
@@ -757,6 +800,7 @@ function ProjectCard({ title, subtitle, date, category, description, features, t
   badge: string;
   badgeColor: BadgeColor;
   icon: string;
+  image?: string;
 }) {
   const badgeStyles: Record<BadgeColor, string> = {
     primary: "bg-primary/20 text-primary border-primary/30",
@@ -783,54 +827,71 @@ function ProjectCard({ title, subtitle, date, category, description, features, t
     <motion.div
       whileHover={{ y: -8, scale: 1.01 }}
       transition={{ duration: 0.3 }}
-      className={`glass-card rounded-2xl p-6 flex flex-col h-full group border border-white/10 transition-all duration-300 ${glowStyles[badgeColor]}`}
+      className={`glass-card rounded-2xl overflow-hidden flex flex-col h-full group border border-white/10 transition-all duration-300 ${glowStyles[badgeColor]}`}
     >
-      {/* Header */}
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex items-center gap-3">
-          <span className="text-3xl">{icon}</span>
-          <div>
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors font-display">{title}</h3>
-            <p className="text-xs text-muted-foreground">{subtitle}</p>
+      {/* Project Image */}
+      {image && (
+        <div className="relative h-44 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+          <div className="absolute top-3 right-3">
+            <span className={`px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded border ${badgeStyles[badgeColor]}`}>{badge}</span>
           </div>
         </div>
-        <span className="text-xs font-mono text-muted-foreground whitespace-nowrap ml-2">{date}</span>
-      </div>
+      )}
 
-      {/* Badges */}
-      <div className="flex items-center gap-2 mb-4 flex-wrap">
-        <span className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white/70 rounded border border-white/20">{category}</span>
-        <span className={`px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded border ${badgeStyles[badgeColor]}`}>{badge}</span>
-      </div>
+      <div className="p-6 flex flex-col flex-grow">
+        {/* Header */}
+        <div className="flex justify-between items-start mb-4">
+          <div className="flex items-center gap-3">
+            <span className="text-3xl">{icon}</span>
+            <div>
+              <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors font-display">{title}</h3>
+              <p className="text-xs text-muted-foreground">{subtitle}</p>
+            </div>
+          </div>
+          <span className="text-xs font-mono text-muted-foreground whitespace-nowrap ml-2">{date}</span>
+        </div>
 
-      {/* Description */}
-      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{description}</p>
+        {/* Badges */}
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <span className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white/70 rounded border border-white/20">{category}</span>
+          {!image && <span className={`px-2 py-1 text-[10px] font-bold uppercase tracking-wider rounded border ${badgeStyles[badgeColor]}`}>{badge}</span>}
+        </div>
 
-      {/* Features */}
-      <ul className="space-y-1 mb-5 flex-grow">
-        {features.map((f, i) => (
-          <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
-            <span className={`mt-0.5 text-[10px] ${badgeColor === "primary" ? "text-primary" : badgeColor === "secondary" ? "text-secondary" : badgeColor === "green" ? "text-green-400" : "text-orange-400"}`}>▹</span>
-            {f}
-          </li>
-        ))}
-      </ul>
+        {/* Description */}
+        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{description}</p>
 
-      {/* Tech Stack */}
-      <div className="flex flex-wrap gap-2 mb-5">
-        {tech.map((t, i) => (
-          <span key={i} className={`text-xs px-2 py-1 rounded-md ${techColors[badgeColor]}`}>{t}</span>
-        ))}
-      </div>
+        {/* Features */}
+        <ul className="space-y-1 mb-5 flex-grow">
+          {features.map((f, i) => (
+            <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+              <span className={`mt-0.5 text-[10px] ${badgeColor === "primary" ? "text-primary" : badgeColor === "secondary" ? "text-secondary" : badgeColor === "green" ? "text-green-400" : "text-orange-400"}`}>▹</span>
+              {f}
+            </li>
+          ))}
+        </ul>
 
-      {/* Actions */}
-      <div className="flex gap-3 mt-auto">
-        <a href={github} target="_blank" rel="noreferrer" className="flex-1 py-2 text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 rounded-lg flex items-center justify-center gap-2 transition-all">
-          <Github size={16} /> GitHub
-        </a>
-        <a href="#" className={`flex-1 py-2 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all border ${badgeStyles[badgeColor]}`}>
-          <ExternalLink size={16} /> Demo
-        </a>
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {tech.map((t, i) => (
+            <span key={i} className={`text-xs px-2 py-1 rounded-md ${techColors[badgeColor]}`}>{t}</span>
+          ))}
+        </div>
+
+        {/* Actions */}
+        <div className="flex gap-3 mt-auto">
+          <a href={github} target="_blank" rel="noreferrer" className="flex-1 py-2 text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 rounded-lg flex items-center justify-center gap-2 transition-all">
+            <Github size={16} /> GitHub
+          </a>
+          <a href={github} target="_blank" rel="noreferrer" className={`flex-1 py-2 text-sm font-medium rounded-lg flex items-center justify-center gap-2 transition-all border ${badgeStyles[badgeColor]}`}>
+            <ExternalLink size={16} /> View Repo
+          </a>
+        </div>
       </div>
     </motion.div>
   );
@@ -852,14 +913,26 @@ function TimelineItem({ title, subtitle, date, desc, active = false }: { title: 
   );
 }
 
-function CertCard({ title, org, date }: { title: string, org: string, date: string }) {
+function CertCard({ title, org, date, link }: { title: string, org: string, date: string, link?: string }) {
   return (
-    <div className="glass-card p-4 rounded-xl flex flex-col justify-between hover:border-primary/50 transition-all cursor-pointer group">
+    <div className="glass-card p-4 rounded-xl flex flex-col justify-between hover:border-primary/50 transition-all group border border-white/10">
       <div>
         <h5 className="font-bold text-sm text-foreground group-hover:text-primary transition-colors line-clamp-2">{title}</h5>
         <p className="text-xs text-muted-foreground mt-1">{org}</p>
+        <p className="text-[10px] font-mono text-white/40 mt-1">{date}</p>
       </div>
-      <p className="text-[10px] font-mono text-white/40 mt-3">{date}</p>
+      {link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-3 flex items-center gap-1.5 text-[11px] text-primary/70 hover:text-primary transition-colors font-medium"
+        >
+          <ExternalLink size={11} /> Open Link
+        </a>
+      )}
     </div>
   );
 }
+
+
