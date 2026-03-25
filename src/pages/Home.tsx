@@ -125,8 +125,8 @@ export default function Home() {
                   View Projects
                 </a>
                 <a 
-                  href={`${import.meta.env.BASE_URL}Rahul_Kumawat_CV.docx`}
-                  download="Rahul_Kumawat_CV.docx"
+                  href={`${import.meta.env.BASE_URL}Rahul_Kumawat_CV.pdf`}
+                  download="Rahul_Kumawat_CV.pdf"
                   className="px-8 py-3 rounded-md font-semibold glass border border-white/20 hover:border-secondary hover:bg-secondary/10 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 flex items-center gap-2"
                 >
                   <Download size={18} /> Download CV
@@ -551,7 +551,7 @@ export default function Home() {
                   "RESTful API with layered architecture",
                 ]}
                 tech={["Java", "Spring Boot", "MySQL", "React", "REST API"]}
-                github="https://github.com/Rahul908619/Online-Examination-System"
+                github="https://github.com/Rahul908619/Online-Exam-System"
                 badge="Latest"
                 badgeColor="primary"
                 icon="📝"
